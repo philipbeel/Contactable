@@ -17,16 +17,15 @@
 		//set default options  
 		var defaults = {
 			url: 'http://YourServerHere.com/contactable/mail.php',
-			name: 'Name',
-			email: 'Email',
-			message : 'Message',
-			subject : 'A contactable message',
-			submit : 'SEND',
-			recievedMsg : 'Thank you for your message',
-			notRecievedMsg : 'Sorry but your message could not be sent, try again later',
-			disclaimer: 'Please feel free to get in touch, we value your feedback',
+			name: 'שם',
+			email: 'דואר אלקטרוני',
+			message : 'משוב שלך',
+			subject : 'הודעה מטופס צור קשר',
+			submit : 'שלח',
+			recievedMsg : 'תודה לך על ההודעה',
+			notRecievedMsg : 'מתנצלים אך לא ניתן לשלוח את הודעתך, נא צור עמנו קשר בדרך אחרת',
+			disclaimer: 'תרגישו חופשי לשלוח לנו הודעות, אנו מעריכים את המשוב שלכם',
 			hideOnSubmit: false
-
 		};
 
 		//call in the default otions

@@ -2,16 +2,20 @@
 	//declare our assets 
 	$name = stripcslashes($_POST['name']);
 	$emailAddr = stripcslashes($_POST['email']);
-	$comment = stripcslashes($_POST['comment']);
+	$comment = stripcslashes($_POST['message']);
 	$subject = stripcslashes($_POST['subject']);	
-	$contactMessage = "Message: $comment \r \n From: $name \r \n Reply to: $emailAddr";
+	$contactMessage =  
+"Message:
+$comment 
 
-	//validate the email address on the server side
-	if(filter_var($emailAddr, FILTER_VALIDATE_EMAIL) ) {
+Name: $name
+E-mail: $emailAddr
+
+
+Sending IP:$_SERVER[REMOTE_ADDR]
+Sending Script: $_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]
+";
 		//if successful lets send the message
-		mail('/*RECIPIENTS EMAIL ADDRESS HERE*/', $subject, $contactMessage);
+		mail('YourEmailHere@gmail.com', $subject, $contactMessage);
 		echo('success'); //return success callback
-	} else {
-		echo('An invalid email address was entered'); //email was not valid
-	}
 ?>

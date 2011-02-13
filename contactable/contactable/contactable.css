@@ -1,4 +1,49 @@
-#contactable #contactable_inner {
+/* theodin.co.uk -Designed and developed by Philip Beel All Rights Reserved*/
+
+/* 
+------------------------------------------------------------------------------------------------------Genetic--------------*/
+
+/* Reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
+	margin:0;
+	padding:0;
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+fieldset,img { 
+	border:0;
+}
+address,caption,cite,code,dfn,em,strong,th,var {
+	font-style:normal;
+	font-weight:normal;
+}
+ol,ul {
+	list-style:none;
+}
+caption,th {
+	text-align:left;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-size:100%;
+	font-weight:normal;
+}
+q:before,q:after {
+	content:'';
+}
+abbr,acronym { border:0;
+}
+
+body {
+	font-family: georgia;
+	font-size:1.1em;
+	height:100%;
+	width:100%;	
+	background-color:#dfdfdf;
+}
+
+#contactable {
 	background-image:url(images/contact.png);
 	color:#FFFFFF;
 	background-color:#333333;
@@ -17,7 +62,7 @@
 	z-index:100000;
 }
 
-#contactable #contactForm {
+#contactForm {
 	background-color:#333333;
 	border:2px solid #FFFFFF;
 	color:#FFFFFF;
@@ -35,7 +80,7 @@
 	z-index:99;
 }
 
-#contactable form#contactForm input, textarea {
+form#contactForm input, textarea {
 	background:#FFFFFF none repeat scroll 0 0;
 	outline-style:none;
 	outline-width:medium;
@@ -47,7 +92,7 @@
 	margin-bottom:10px;
 }
 
-#contactable form#contactForm .submit {
+form#contactForm .submit {
 	background: #F5410F none repeat scroll 0 0;
 	outline-style:none;
 	outline-width:medium;
@@ -65,20 +110,20 @@
 	margin-top:10px;
 }
 
-#contactable form#contactForm p {
+form#contactForm p {
 	width:325px;
 	font-size:0.9em;
 }
 
-#contactable form#contactForm .disclaimer {
+form#contactForm .disclaimer {
 	*margin-left:20px;
 }
 
-#contactable #contactForm .red {
+#contactForm .red {
 	color:	#F5410F;
 }
 
-#contactable #overlay {
+#overlay {
 	background-color:#666666;
 	display:none;
 	height:100%;
@@ -90,17 +135,17 @@
 	width:100%;
 	z-index:0;
 } 
-#contactable .error { background-color: #EDBE9C; }
+.error { background-color: #EDBE9C; }
 
-#contactable #name.error { background-color: #EDBE9C; } 
-#contactable #email.error { background-color: #EDBE9C; }
-#contactable #comment.error { background-color: #EDBE9C; }
+#name.error { background-color: #EDBE9C; } 
+#email.error { background-color: #EDBE9C; }
+#comment.error { background-color: #EDBE9C; }
 
-#contactable form#contactForm label{
+form#contactForm label{
 	*margin-left:20px;
 }
 
-#contactable form#contactForm #loading {
+form#contactForm #loading {
 	background: url(images/ajax-loader.gif) no-repeat;
 	width:55px;
 	height:55px;
@@ -108,7 +153,7 @@
 	display:none;
 }
 
-#contactable #callback {
+#callback {
 	font-family: georgia;
 	font-size:1.1em;
 	color: #FFF;
@@ -118,8 +163,9 @@
 }
 
 
-#contactable .holder {
+.holder {
 	margin:0 auto;
 	*margin-left:20px;
 	padding-top:20px;	
 }	
+	

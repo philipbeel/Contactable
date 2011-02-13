@@ -123,3 +123,29 @@
 	*margin-left:20px;
 	padding-top:20px;	
 }	
+	
+/* hebrew addons */
+#contactable #contactable_inner {
+	background-image:url(images/contact-he.png); 
+}
+
+#contactable #contactForm {
+        text-align:right;
+}
+
+#contactable form#contactForm label{
+        line-height: 1.5em;
+	direction:rtl;
+}
+
+#contactable form#contactForm .submit {
+	margin-left:13px;
+}
+
+#contactable form input[name=message], #contactable form textarea[name=name] {
+	direction:rtl;
+}
+
+#contactable disclaimer {
+	direction:rtl;
+}
