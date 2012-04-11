@@ -17,7 +17,7 @@ Sending IP:$_SERVER[REMOTE_ADDR]
 Sending Script: $_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]
 ";
 		// If successful lets send the message
-		mail('philipbeel@googlemail.com', $subject, $contactMessage);
+		mail('yourEmailAddress@gmail.com', $subject, $contactMessage);
 		// Return success callback
 		echo('success');
 ?>
