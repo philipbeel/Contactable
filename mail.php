@@ -2,6 +2,7 @@
 	//declare our assets 
 	$name = stripcslashes($_POST['name']);
 	$emailAddr = stripcslashes($_POST['email']);
+	$issue = stripcslashes($_POST['issue']);
 	$comment = stripcslashes($_POST['message']);
 	$subject = stripcslashes($_POST['subject']);	
 	$contactMessage =  
@@ -10,12 +11,13 @@ $comment
 
 Name: $name
 E-mail: $emailAddr
-
+Issue: $issue
 
 Sending IP:$_SERVER[REMOTE_ADDR]
 Sending Script: $_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]
 ";
-		//if successful lets send the message
-		mail('YourEmailHere@gmail.com', $subject, $contactMessage);
-		echo('success'); //return success callback
+		// If successful lets send the message
+		mail('philipbeel@googlemail.com', $subject, $contactMessage);
+		// Return success callback
+		echo('success');
 ?>

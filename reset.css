@@ -36,10 +36,9 @@ abbr,acronym { border:0;
 }
 
 body {
-	font-family: georgia;
-	font-size:1.1em;
-	height:100%;
-	width:100%;	
-	background-color:#dfdfdf;
+    color: #333333;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    line-height: 18px;
 }
 

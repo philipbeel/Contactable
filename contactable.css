@@ -1,6 +1,9 @@
 #contactable #contactable_inner {
 	background-image:url(images/contact.png);
 	color:#FFFFFF;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 16px;
+	line-height: 18px;
 	background-color:#333333;
 	cursor:pointer;
 	height:102px;
@@ -35,27 +38,28 @@
 	z-index:99;
 }
 
-#contactable form#contactForm input, textarea {
+#contactable form#contactForm input, textarea, select {
 	background:#FFFFFF none repeat scroll 0 0;
 	outline-style:none;
 	outline-width:medium;
 	width:325px;
 	padding:5px;
 	border:1px solid #dfdfdf;
-	font-family: georgia;
 	font-size:1em;
 	margin-bottom:10px;
+}
+#contactable form#contactForm select {
+	width:335px;
 }
 
 #contactable form#contactForm .submit {
 	background: #F5410F none repeat scroll 0 0;
 	outline-style:none;
 	outline-width:medium;
-	width:325px;
+	width:335px;
 	padding:5px;
 	border:3px solid #F52D0F;
 	outline-color:-moz-use-text-color;
-	font-family: georgia;
 	font-size:1em;
 	cursor:pointer;
 	color:#FFF;
@@ -109,7 +113,6 @@
 }
 
 #contactable #callback {
-	font-family: georgia;
 	font-size:1.1em;
 	color: #FFF;
 	width:325px;
