@@ -50,7 +50,7 @@
 				dropdown += '</select></p>';
 			}
 
-			$(this).html('<div id="contactable_inner"></div><form id="contactForm" method="" action=""><div id="loading"></div><div id="callback"></div><div class="holder"><p><label for="name">'+options.name+'<span class="red"> * </span></label><br /><input id="name" class="contact" name="name"/></p><p><label for="email">'+options.email+' <span class="red"> * </span></label><br /><input id="email" class="contact" name="email" /></p>'+dropdown+'<p><label for="message">'+options.message+' <span class="red"> * </span></label><br /><textarea id="message" name="message" class="message" rows="4" cols="30" ></textarea></p><p><input class="submit" type="submit" value="'+options.submit+'"/></p><p class="disclaimer">'+options.disclaimer+'</p></div></form>');
+			$(this).html('<div id="contactable_inner"></div><form id="contactForm" method="" action=""><div id="loading"></div><div id="callback"></div><div class="holder"><p><label for="name">'+options.name+'<span class="red"> * </span></label><br /><input id="name" class="contact validate" name="name"/></p><p><label for="email">'+options.email+' <span class="red"> * </span></label><br /><input id="email" class="contact validate" name="email" /></p>'+dropdown+'<p><label for="message">'+options.message+' <span class="red"> * </span></label><br /><textarea id="message" name="message" class="message validate" rows="4" cols="30" ></textarea></p><p><input class="submit" type="submit" value="'+options.submit+'"/></p><p class="disclaimer">'+options.disclaimer+'</p></div></form>');
 			
 			// Toggle the form
 			$(this_id_prefix+'div#contactable_inner').toggle(function() {
@@ -66,74 +66,83 @@
 				$(this_id_prefix+'#overlay').css({display: 'none'});
 			});
 			
-			// Validate the form fields
-			$(this_id_prefix+"#contactForm").validate({
-				
-				// Define validation rules
-				rules: {
-					name: {
-						required: true,
-						minlength: 2
-					},
-					email: {
-						required: true,
-						email: true
-					},
-					message: {
-						required: true
-					}
-				},
-				
-				// Display inline messages
-				messages: {
-					name: "",
-					email: "",
-					message: ""
-				},			
+			// Submit the form
+			$(this_id_prefix+"#contactForm").submit(function() {
+				// Validate the entries
+				var valid = false
+				,	params;
 
-				submitHandler: function() {
-					$(this_id_prefix+'.holder').hide();
-					$(this_id_prefix+'#loading').show();
+				// Loop through required field
+				$(this_id_prefix+"#contactForm .validate").each(function() {
 					
-					//Trigger form submission if form is valid
-					$.ajax({
-						type: 'POST',
-						url: options.url,
-						data: {
-							subject:options.subject, 
-							name:$(this_id_prefix+'#name').val(), 
-							email:$(this_id_prefix+'#email').val(), 
-							issue:$(this_id_prefix+'#dropdown').val(), 
-							message:$(this_id_prefix+'#message').val()
-						},
-						success: function(data) {
-							
-							// Hide the loading animation
-							$(this_id_prefix+'#loading').css({display:'none'}); 
-							
-							if( data === 'success') {
-								$(this_id_prefix+'#callback').show().append(options.recievedMsg);
-								if(options.hideOnSubmit === true) {
-									//hide the tab after successful submition if requested
-									$(this_id_prefix+'#contactForm').animate({dummy:1}, 2000).animate({"marginLeft": "-=450px"}, "slow");
-									$(this_id_prefix+'div#contactable_inner').animate({dummy:1}, 2000).animate({"marginLeft": "-=447px"}, "slow").animate({"marginLeft": "+=5px"}, "fast"); 
-									$(this_id_prefix+'#overlay').css({display: 'none'});	
-								}
-							} else {
-								$(this_id_prefix+'#callback').show().append(options.notRecievedMsg);
-								setTimeout(function(){
-									$(this_id_prefix+'.holder').show();
-									$(this_id_prefix+'#callback').hide().html('');
-								},2000);
-							}
-						},
-						error:function(){
-							$(this_id_prefix+'#loading').css({display:'none'}); 
-							$(this_id_prefix+'#callback').show().append(options.notRecievedMsg);
-						}
-					});		
-				}
+					if($(this).val() === '') {
+						console.warn("field:::::::", $(this).val() );
+					}
+
+				});
+
+
+				// Check if a value was entered
+
+				// Check if correct email was entered
+
+				// Set the valid result
+
+				// if(valid === true) {
+				// 	submitForm();
+				// } else {
+				// 	showErrors(params)
+				// }
+				return false;
 			});
+
+			function showErrors(params) {
+				return false;
+			}
+				
+
+			function submitForm() {
+				$(this_id_prefix+'.holder').hide();
+				$(this_id_prefix+'#loading').show();
+				
+				//Trigger form submission if form is valid
+				$.ajax({
+					type: 'POST',
+					url: options.url,
+					data: {
+						subject:options.subject, 
+						name:$(this_id_prefix+'#name').val(), 
+						email:$(this_id_prefix+'#email').val(), 
+						issue:$(this_id_prefix+'#dropdown').val(), 
+						message:$(this_id_prefix+'#message').val()
+					},
+					success: function(data) {
+						
+						// Hide the loading animation
+						$(this_id_prefix+'#loading').css({display:'none'}); 
+						
+						if( data === 'success') {
+							$(this_id_prefix+'#callback').show().append(options.recievedMsg);
+							if(options.hideOnSubmit === true) {
+								//hide the tab after successful submition if requested
+								$(this_id_prefix+'#contactForm').animate({dummy:1}, 2000).animate({"marginLeft": "-=450px"}, "slow");
+								$(this_id_prefix+'div#contactable_inner').animate({dummy:1}, 2000).animate({"marginLeft": "-=447px"}, "slow").animate({"marginLeft": "+=5px"}, "fast"); 
+								$(this_id_prefix+'#overlay').css({display: 'none'});	
+							}
+						} else {
+							$(this_id_prefix+'#callback').show().append(options.notRecievedMsg);
+							setTimeout(function(){
+								$(this_id_prefix+'.holder').show();
+								$(this_id_prefix+'#callback').hide().html('');
+							},2000);
+						}
+					},
+					error:function(){
+						$(this_id_prefix+'#loading').css({display:'none'}); 
+						$(this_id_prefix+'#callback').show().append(options.notRecievedMsg);
+					}
+				});		
+			}
 		});
 	};
  
