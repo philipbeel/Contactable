@@ -18,7 +18,7 @@
 			url: 'http://yourWebsiteRootDirectory.com/mail.php',
 			name: 'Name',
 			email: 'Email',
-			dropdown: 'Issue',
+			dropdownTitle: '',
 			dropdownOptions: ['General', 'Website bug', 'Feature request'],
 			message : 'Message',
 			subject : 'A contactable message',
@@ -35,13 +35,22 @@
 			
 			// Create the form and inject it into the DOM
 			var this_id_prefix = '#'+this.id+' '
-			,	dropdown
+			,	dropdown = ''
 			,	dropdownLen = options.dropdownOptions.length
 			,	i;
-			for(i=0; i < dropdownLen; i++) {
-				dropdown += '<option value="'+options.dropdownOptions[i]+'">'+options.dropdownOptions[i]+'</option>';
+
+			// Add select option if applicable
+			if(options.dropdownTitle) {
+				dropdown += '<p><label for="issue">'+options.dropdownTitle+' </label><br /><select name="dropdown" id="dropdown" class="dropdown">';
+
+				for(i=0; i < dropdownLen; i++) {
+					dropdown += '<option value="'+options.dropdownOptions[i]+'">'+options.dropdownOptions[i]+'</option>';
+				}			
+				
+				dropdown += '</select></p>';
 			}
-			$(this).html('<div id="contactable_inner"></div><form id="contactForm" method="" action=""><div id="loading"></div><div id="callback"></div><div class="holder"><p><label for="name">'+options.name+'<span class="red"> * </span></label><br /><input id="name" class="contact" name="name"/></p><p><label for="email">'+options.email+' <span class="red"> * </span></label><br /><input id="email" class="contact" name="email" /></p><p><label for="issue">'+options.dropdown+' </label><br /><select name="issue" id="issue" class="issue">'+dropdown+'</select></p><p><label for="message">'+options.message+' <span class="red"> * </span></label><br /><textarea id="message" name="message" class="message" rows="4" cols="30" ></textarea></p><p><input class="submit" type="submit" value="'+options.submit+'"/></p><p class="disclaimer">'+options.disclaimer+'</p></div></form>');
+
+			$(this).html('<div id="contactable_inner"></div><form id="contactForm" method="" action=""><div id="loading"></div><div id="callback"></div><div class="holder"><p><label for="name">'+options.name+'<span class="red"> * </span></label><br /><input id="name" class="contact" name="name"/></p><p><label for="email">'+options.email+' <span class="red"> * </span></label><br /><input id="email" class="contact" name="email" /></p>'+dropdown+'<p><label for="message">'+options.message+' <span class="red"> * </span></label><br /><textarea id="message" name="message" class="message" rows="4" cols="30" ></textarea></p><p><input class="submit" type="submit" value="'+options.submit+'"/></p><p class="disclaimer">'+options.disclaimer+'</p></div></form>');
 			
 			// Toggle the form
 			$(this_id_prefix+'div#contactable_inner').toggle(function() {
@@ -94,7 +103,7 @@
 							subject:options.subject, 
 							name:$(this_id_prefix+'#name').val(), 
 							email:$(this_id_prefix+'#email').val(), 
-							issue:$(this_id_prefix+'#issue').val(), 
+							issue:$(this_id_prefix+'#dropdown').val(), 
 							message:$(this_id_prefix+'#message').val()
 						},
 						success: function(data) {
