@@ -1,5 +1,5 @@
 /*
- * contactable 1.4 - jQuery Ajax contact form
+ * contactable 1.5 - jQuery Ajax contact form
  *
  * Copyright (c) 2009 Philip Beel (http://www.theodin.co.uk/)
  * Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php) 
@@ -30,12 +30,13 @@
 		};
 
 		var options = $.extend(defaults, options);
-		  
+		
 		return this.each(function() {
-			
+
 			// Create the form and inject it into the DOM
 			var this_id_prefix = '#'+this.id+' '
 			,	dropdown = ''
+			,	filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
 			,	dropdownLen = options.dropdownOptions.length
 			,	i;
 
@@ -52,7 +53,9 @@
 
 			$(this).html('<div id="contactable_inner"></div><form id="contactForm" method="" action=""><div id="loading"></div><div id="callback"></div><div class="holder"><p><label for="name">'+options.name+'<span class="red"> * </span></label><br /><input id="name" class="contact validate" name="name"/></p><p><label for="email">'+options.email+' <span class="red"> * </span></label><br /><input id="email" class="contact validate" name="email" /></p>'+dropdown+'<p><label for="message">'+options.message+' <span class="red"> * </span></label><br /><textarea id="message" name="message" class="message validate" rows="4" cols="30" ></textarea></p><p><input class="submit" type="submit" value="'+options.submit+'"/></p><p class="disclaimer">'+options.disclaimer+'</p></div></form>');
 			
-			// Toggle the form
+			console.warn("init plugin", $(this_id_prefix+"#contactForm"));
+
+			// Toggle the form visibility
 			$(this_id_prefix+'div#contactable_inner').toggle(function() {
 				$(this_id_prefix+'#overlay').css({display: 'block'});
 				$(this).animate({"marginLeft": "-=5px"}, "2000"); 
@@ -68,38 +71,43 @@
 			
 			// Submit the form
 			$(this_id_prefix+"#contactForm").submit(function() {
+				console.warn("submit the form", $(this).val().length);
+
 				// Validate the entries
-				var valid = false
+				var valid = true
 				,	params;
 
 				// Loop through required field
 				$(this_id_prefix+"#contactForm .validate").each(function() {
 					
-					if($(this).val() === '') {
-						console.warn("field:::::::", $(this).val() );
+					// Check the min length
+					if($(this).val().length < 2) {
+						$(this).addClass("invalid");
+						valid = false;
 					}
 
+					//Check email is valid
+					if($(this).attr({ "id":"email"})) {
+						if (!filter.test($(this).value)) {
+							console.warn("email field not valid:::::::", $(this).val() );
+							$(this).addClass("invalid");
+							valid = false;
+						}
+					}
 				});
 
-
-				// Check if a value was entered
-
-				// Check if correct email was entered
-
-				// Set the valid result
-
-				// if(valid === true) {
-				// 	submitForm();
-				// } else {
-				// 	showErrors(params)
-				// }
+				if(valid === true) {
+					submitForm();
+				} else {
+					showErrors(params)
+				}
 				return false;
 			});
 
 			function showErrors(params) {
+				console.warn("there are errors:::::::");
 				return false;
 			}
-				
 
 			function submitForm() {
 				$(this_id_prefix+'.holder').hide();
