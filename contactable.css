@@ -67,6 +67,8 @@
 	font-weight:bolder;
 	font-family:Helvetica;
 	margin-top:10px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px; 
 }
 
 #contactable form#contactForm p {
@@ -94,11 +96,10 @@
 	width:100%;
 	z-index:0;
 } 
-#contactable .error { background-color: #EDBE9C; }
-
-#contactable #name.error { background-color: #EDBE9C; } 
-#contactable #email.error { background-color: #EDBE9C; }
-#contactable #comment.error { background-color: #EDBE9C; }
+#contactable .invalid { background-color: #EDBE9C; }
+#contactable #name.invalid { background-color: #EDBE9C; } 
+#contactable #email.invalid { background-color: #EDBE9C; }
+#contactable #comment.invalid { background-color: #EDBE9C; }
 
 #contactable form#contactForm label{
 	*margin-left:20px;

@@ -1,0 +1,70 @@
+/* theodin.co.uk -Designed and developed by Philip Beel All Rights Reserved*/
+
+/* 
+------------------------------------------------------------------------------------------------------Genetic--------------*/
+
+/* Reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
+	margin:0;
+	padding:0;
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+fieldset,img { 
+	border:0;
+}
+address,caption,cite,code,dfn,em,strong,th,var {
+	font-style:normal;
+	font-weight:normal;
+}
+ol,ul {
+	list-style:none;
+}
+caption,th {
+	text-align:left;
+}
+h1, h2, h3 {
+    color:#211919;
+    position: relative;
+    float:left;
+    letter-spacing: -1px;
+    font-size:1.3em;
+    text-shadow: 0px 1px 0px #ffffff;
+    filter: dropshadow(color=#ffffff, offx=0, offy=1); 
+}
+q:before,q:after {
+	content:'';
+}
+abbr,acronym { border:0;
+}
+
+body {
+    background: #C2C9CC;
+    font-family: "helvetica neue", Helvetica, Arial;
+    color:#536371;
+    font-weight:normal;
+    font-size:1.2em;
+}
+
+/* Demo */
+#content {
+    border-left:2px solid #333333;
+    border-right:2px solid #333333;
+    margin:0 auto;
+    padding:10px;
+    position:relative;
+    width:600px;
+    height:100%;
+}   
+#page {
+    margin:0 auto;
+    width:960px;    
+}
+#page h2 {
+    font-weight:bolder;
+    position:relative;
+    float:left;
+    margin:10px;
+}   

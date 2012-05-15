@@ -71,11 +71,15 @@
 			
 			// Submit the form
 			$(this_id_prefix+"#contactForm").submit(function() {
-				console.warn("submit the form", $(this).val().length);
-
+				
 				// Validate the entries
 				var valid = true
 				,	params;
+
+				//Remove any previous errors
+				$(this_id_prefix+"#contactForm .validate").each(function() {
+					$(this).removeClass('invalid');
+				});
 
 				// Loop through required field
 				$(this_id_prefix+"#contactForm .validate").each(function() {
@@ -87,27 +91,18 @@
 					}
 
 					//Check email is valid
-					if($(this).attr({ "id":"email"})) {
-						if (!filter.test($(this).value)) {
-							console.warn("email field not valid:::::::", $(this).val() );
-							$(this).addClass("invalid");
-							valid = false;
-						}
-					}
+					if (!filter.test($(this_id_prefix+"#contactForm #email").val())) {
+						$(this_id_prefix+"#contactForm #email").addClass("invalid");
+						valid = false;
+					}						
 				});
 
 				if(valid === true) {
 					submitForm();
 				} else {
-					showErrors(params)
+					return false;
 				}
-				return false;
 			});
-
-			function showErrors(params) {
-				console.warn("there are errors:::::::");
-				return false;
-			}
 
 			function submitForm() {
 				$(this_id_prefix+'.holder').hide();
