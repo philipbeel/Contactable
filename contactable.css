@@ -46,6 +46,7 @@
 	padding:5px;
 	border:1px solid #dfdfdf;
 	font-size:1em;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	margin-bottom:10px;
 }
 #contactable form#contactForm select {

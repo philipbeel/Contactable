@@ -15,7 +15,7 @@
 	$.fn.contactable = function(options) {
 		// Set default options  
 		var defaults = {
-			url: 'http://yourWebsiteRootDirectory.com/mail.php',
+			url: 'mail.php',
 			name: 'Name',
 			email: 'Email',
 			dropdownTitle: '',
@@ -26,7 +26,7 @@
 			recievedMsg : 'Thank you for your message',
 			notRecievedMsg : 'Sorry but your message could not be sent, try again later',
 			disclaimer: 'Please feel free to get in touch, we value your feedback',
-			hideOnSubmit: false
+			hideOnSubmit: true
 		};
 
 		var options = $.extend(defaults, options);
@@ -51,10 +51,8 @@
 				dropdown += '</select></p>';
 			}
 
-			$(this).html('<div id="contactable_inner"></div><form id="contactForm" method="" action=""><div id="loading"></div><div id="callback"></div><div class="holder"><p><label for="name">'+options.name+'<span class="red"> * </span></label><br /><input id="name" class="contact validate" name="name"/></p><p><label for="email">'+options.email+' <span class="red"> * </span></label><br /><input id="email" class="contact validate" name="email" /></p>'+dropdown+'<p><label for="message">'+options.message+' <span class="red"> * </span></label><br /><textarea id="message" name="message" class="message validate" rows="4" cols="30" ></textarea></p><p><input class="submit" type="submit" value="'+options.submit+'"/></p><p class="disclaimer">'+options.disclaimer+'</p></div></form>');
+			$(this).html('<div id="contactable_inner"></div><form id="contactForm" method="" action=""><div id="loading"></div><div id="callback"></div><div class="holder"><p><label for="name">'+options.name+'<span class="red"> * </span></label><br /><input id="name" class="contact validate" name="name" value="test"/></p><p><label for="email">'+options.email+' <span class="red"> * </span></label><br /><input id="email" class="contact validate" name="email" value="test@test.com" /></p>'+dropdown+'<p><label for="message">'+options.message+' <span class="red"> * </span></label><br /><textarea id="message" name="message" class="message validate" rows="4" cols="30" >test</textarea></p><p><input class="submit" type="submit" value="'+options.submit+'"/></p><p class="disclaimer">'+options.disclaimer+'</p></div></form>');
 			
-			console.warn("init plugin", $(this_id_prefix+"#contactForm"));
-
 			// Toggle the form visibility
 			$(this_id_prefix+'div#contactable_inner').toggle(function() {
 				$(this_id_prefix+'#overlay').css({display: 'block'});
@@ -99,9 +97,8 @@
 
 				if(valid === true) {
 					submitForm();
-				} else {
-					return false;
 				}
+					return false;
 			});
 
 			function submitForm() {
@@ -120,7 +117,6 @@
 						message:$(this_id_prefix+'#message').val()
 					},
 					success: function(data) {
-						
 						// Hide the loading animation
 						$(this_id_prefix+'#loading').css({display:'none'}); 
 						
@@ -133,6 +129,9 @@
 								$(this_id_prefix+'#overlay').css({display: 'none'});	
 							}
 						} else {
+
+							alert("failed");
+
 							$(this_id_prefix+'#callback').show().append(options.notRecievedMsg);
 							setTimeout(function(){
 								$(this_id_prefix+'.holder').show();
@@ -140,7 +139,8 @@
 							},2000);
 						}
 					},
-					error:function(){
+					error:function(e){
+						console.warn("failed", e);
 						$(this_id_prefix+'#loading').css({display:'none'}); 
 						$(this_id_prefix+'#callback').show().append(options.notRecievedMsg);
 					}
