@@ -10,26 +10,24 @@
 	$headers  = 'MIME-Version: 1.0' . "\r\n";
 	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-	// Create message
+	// Format message
 	$contactMessage =  
-	"Message:
-	$comment 
+	"<div>
+	<p><strong>Name:</strong> $name <br />
+	<strong>E-mail:</strong> $emailAddr <br />
+	<strong>Issue:</strong> $issue </p>
 
-	Name: $name
-	E-mail: $emailAddr
-	Issue: $issue
+	<p><strong>Message:</strong> $comment </p>
 
-	Sending IP:$_SERVER[REMOTE_ADDR]
-	Sending Script: $_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]";
+	<p><strong>Sending IP:</strong> $_SERVER[REMOTE_ADDR]<br />
+	<strong>Sent via:</strong> $_SERVER[HTTP_HOST]</p>
+	</div>";
 
 	// Send and check the message status
-	if(mail('philipbeel@googlemail.com', $subject, $contactMessage, $headers) ) {
-		echo(" { 'response' : 'success' } ");	
-	} else {
-		echo(" { 'response' : 'failure' } ");	
-	}
+	$response = (mail('CHANGE@YOURADDRESS.COM', $subject, $contactMessage, $headers) ) ? "success" : "failure" ;
+	$output = json_encode(array("response" => $response));
 	
-
-
-
+	header('content-type: application/json; charset=utf-8');
+	echo($output);
+	
 ?>

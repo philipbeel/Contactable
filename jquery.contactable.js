@@ -5,14 +5,14 @@
  * Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php) 
  * and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
  *
- * Revision: $Id: jquery.contactable.js 2012-04-11 $
+ * Revision: $Id: jquery.contactable.min.js 2012-05-26 $
  *
  */
  
-(function($){
+(function(jQuery){
 
 	// Define the new for the plugin ans how to call it	
-	$.fn.contactable = function(options) {
+	jQuery.fn.contactable = function(options) {
 		// Set default options  
 		var defaults = {
 			url: 'mail.php',
@@ -29,7 +29,7 @@
 			hideOnSubmit: true
 		};
 
-		var options = $.extend(defaults, options);
+		var options = jQuery.extend(defaults, options);
 		
 		return this.each(function() {
 
@@ -50,47 +50,73 @@
 				
 				dropdown += '</select></p>';
 			}
+			// Form layout
+			/*	
+			*	<div id="contactable_inner"></div>
+			*	<form id="contactForm" method="" action="">
+			*  		<div id="loading"></div>
+			*		<div id="callback"></div>
+			* 		<div class="holder">
+			* 			<p>
+			*				<label for="name">Name<span class="green"> * </span></label><br />
+			*				<input id="name" class="contact validate" name="name" />
+			*			</p>
+			*			<p>
+			*				<label for="email"> Email address <span class="green"> * </span></label><br />
+			* 				<input id="email" class="contact validate" name="email" />
+			*			</p>
+			* 			<p>
+			*				<label for="message"> Message <span class="green"> * </span></label><br />
+			* 				<textarea id="message" name="message" class="message validate" rows="4" cols="30" ></textarea>
+			*			</p>
+			*			<p>
+			*				<input class="submit" type="submit" value="Submit"/>
+			*			</p>
+			*			<p class="disclaimer">Disclaimer</p>
+			*		</div>
+			*	</form>
+			*/
 
-			$(this).html('<div id="contactable_inner"></div><form id="contactForm" method="" action=""><div id="loading"></div><div id="callback"></div><div class="holder"><p><label for="name">'+options.name+'<span class="red"> * </span></label><br /><input id="name" class="contact validate" name="name" value="test"/></p><p><label for="email">'+options.email+' <span class="red"> * </span></label><br /><input id="email" class="contact validate" name="email" value="test@test.com" /></p>'+dropdown+'<p><label for="message">'+options.message+' <span class="red"> * </span></label><br /><textarea id="message" name="message" class="message validate" rows="4" cols="30" >test</textarea></p><p><input class="submit" type="submit" value="'+options.submit+'"/></p><p class="disclaimer">'+options.disclaimer+'</p></div></form>');
+			jQuery(this).html('<div id="contactable_inner"></div><form id="contactForm" method="" action=""><div id="loading"></div><div id="callback"></div><div class="holder"><p><label for="name">'+options.name+'<span class="green"> * </span></label><br /><input id="name" class="contact validate" name="name" /></p><p><label for="email">'+options.email+' <span class="green"> * </span></label><br /><input id="email" class="contact validate" name="email" /></p>'+dropdown+'<p><label for="message">'+options.message+' <span class="green"> * </span></label><br /><textarea id="message" name="message" class="message validate" rows="4" cols="30" ></textarea></p><p><input class="submit" type="submit" value="'+options.submit+'"/></p><p class="disclaimer">'+options.disclaimer+'</p></div></form>');
 			
 			// Toggle the form visibility
-			$(this_id_prefix+'div#contactable_inner').toggle(function() {
-				$(this_id_prefix+'#overlay').css({display: 'block'});
-				$(this).animate({"marginLeft": "-=5px"}, "2000"); 
-				$(this_id_prefix+'#contactForm').animate({"marginLeft": "-=0px"}, "2000");
-				$(this).animate({"marginLeft": "+=387px"}, "4000"); 
-				$(this_id_prefix+'#contactForm').animate({"marginLeft": "+=390px"}, "4000"); 
+			jQuery(this_id_prefix+'div#contactable_inner').toggle(function() {
+				jQuery(this_id_prefix+'#overlay').css({display: 'block'});
+				jQuery(this).animate({"marginLeft": "-=5px"}, "2000"); 
+				jQuery(this_id_prefix+'#contactForm').animate({"marginLeft": "-=0px"}, "2000");
+				jQuery(this).animate({"marginLeft": "+=387px"}, "4000"); 
+				jQuery(this_id_prefix+'#contactForm').animate({"marginLeft": "+=390px"}, "4000"); 
 			}, 
 			function() {
-				$(this_id_prefix+'#contactForm').animate({"marginLeft": "-=390px"}, "4000");
-				$(this).animate({"marginLeft": "-=387px"}, "4000").animate({"marginLeft": "+=5px"}, "2000"); 
-				$(this_id_prefix+'#overlay').css({display: 'none'});
+				jQuery(this_id_prefix+'#contactForm').animate({"marginLeft": "-=390px"}, "4000");
+				jQuery(this).animate({"marginLeft": "-=387px"}, "4000").animate({"marginLeft": "+=5px"}, "2000"); 
+				jQuery(this_id_prefix+'#overlay').css({display: 'none'});
 			});
 			
 			// Submit the form
-			$(this_id_prefix+"#contactForm").submit(function() {
+			jQuery(this_id_prefix+"#contactForm").submit(function() {
 				
 				// Validate the entries
 				var valid = true
 				,	params;
 
 				//Remove any previous errors
-				$(this_id_prefix+"#contactForm .validate").each(function() {
-					$(this).removeClass('invalid');
+				jQuery(this_id_prefix+"#contactForm .validate").each(function() {
+					jQuery(this).removeClass('invalid');
 				});
 
-				// Loop through required field
-				$(this_id_prefix+"#contactForm .validate").each(function() {
+				// Loop through requigreen field
+				jQuery(this_id_prefix+"#contactForm .validate").each(function() {
 					
 					// Check the min length
-					if($(this).val().length < 2) {
-						$(this).addClass("invalid");
+					if(jQuery(this).val().length < 2) {
+						jQuery(this).addClass("invalid");
 						valid = false;
 					}
 
 					//Check email is valid
-					if (!filter.test($(this_id_prefix+"#contactForm #email").val())) {
-						$(this_id_prefix+"#contactForm #email").addClass("invalid");
+					if (!filter.test(jQuery(this_id_prefix+"#contactForm #email").val())) {
+						jQuery(this_id_prefix+"#contactForm #email").addClass("invalid");
 						valid = false;
 					}						
 				});
@@ -98,51 +124,49 @@
 				if(valid === true) {
 					submitForm();
 				}
-					return false;
+				return false;
 			});
 
 			function submitForm() {
-				$(this_id_prefix+'.holder').hide();
-				$(this_id_prefix+'#loading').show();
+				// Display loading animation
+				jQuery(this_id_prefix+'.holder').hide();
+				jQuery(this_id_prefix+'#loading').show();
 				
-				//Trigger form submission if form is valid
-				$.ajax({
+				// Trigger form submission if form is valid
+				jQuery.ajax({
 					type: 'POST',
 					url: options.url,
 					data: {
 						subject:options.subject, 
-						name:$(this_id_prefix+'#name').val(), 
-						email:$(this_id_prefix+'#email').val(), 
-						issue:$(this_id_prefix+'#dropdown').val(), 
-						message:$(this_id_prefix+'#message').val()
+						name:jQuery(this_id_prefix+'#name').val(), 
+						email:jQuery(this_id_prefix+'#email').val(), 
+						issue:jQuery(this_id_prefix+'#dropdown').val(), 
+						message:jQuery(this_id_prefix+'#message').val()
 					},
 					success: function(data) {
-						// Hide the loading animation
-						$(this_id_prefix+'#loading').css({display:'none'}); 
-						
-						if( data === 'success') {
-							$(this_id_prefix+'#callback').show().append(options.recievedMsg);
+						// Hide loading animation
+						jQuery(this_id_prefix+'#loading').css({display:'none'}); 
+
+						// Check for a valid server side response
+						if( data.response === 'success') {
+							jQuery(this_id_prefix+'#callback').show().append(options.recievedMsg);
 							if(options.hideOnSubmit === true) {
 								//hide the tab after successful submition if requested
-								$(this_id_prefix+'#contactForm').animate({dummy:1}, 2000).animate({"marginLeft": "-=450px"}, "slow");
-								$(this_id_prefix+'div#contactable_inner').animate({dummy:1}, 2000).animate({"marginLeft": "-=447px"}, "slow").animate({"marginLeft": "+=5px"}, "fast"); 
-								$(this_id_prefix+'#overlay').css({display: 'none'});	
+								jQuery(this_id_prefix+'#contactForm').animate({dummy:1}, 2000).animate({"marginLeft": "-=450px"}, "slow");
+								jQuery(this_id_prefix+'div#contactable_inner').animate({dummy:1}, 2000).animate({"marginLeft": "-=447px"}, "slow").animate({"marginLeft": "+=5px"}, "fast"); 
+								jQuery(this_id_prefix+'#overlay').css({display: 'none'});	
 							}
 						} else {
-
-							alert("failed");
-
-							$(this_id_prefix+'#callback').show().append(options.notRecievedMsg);
+							jQuery(this_id_prefix+'#callback').show().append(options.notRecievedMsg);
 							setTimeout(function(){
-								$(this_id_prefix+'.holder').show();
-								$(this_id_prefix+'#callback').hide().html('');
+								jQuery(this_id_prefix+'.holder').show();
+								jQuery(this_id_prefix+'#callback').hide().html('');
 							},2000);
 						}
 					},
 					error:function(e){
-						console.warn("failed", e);
-						$(this_id_prefix+'#loading').css({display:'none'}); 
-						$(this_id_prefix+'#callback').show().append(options.notRecievedMsg);
+						jQuery(this_id_prefix+'#loading').css({display:'none'}); 
+						jQuery(this_id_prefix+'#callback').show().append(options.notRecievedMsg);
 					}
 				});		
 			}
