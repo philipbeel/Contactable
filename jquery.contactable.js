@@ -42,7 +42,7 @@
 
 			// Add select option if applicable
 			if(options.dropdownTitle) {
-				dropdown += '<p><label for="issue">'+options.dropdownTitle+' </label><br /><select name="dropdown" id="dropdown" class="dropdown">';
+				dropdown += '<p><label for="dropdown">'+options.dropdownTitle+' </label><br /><select name="dropdown" id="dropdown" class="dropdown">';
 
 				for(i=0; i < dropdownLen; i++) {
 					dropdown += '<option value="'+options.dropdownOptions[i]+'">'+options.dropdownOptions[i]+'</option>';
