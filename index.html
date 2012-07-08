@@ -6,16 +6,16 @@
 <body>
 
 <!--start contactable -->
-<div id="contactable"><!-- contactable html placeholder --></div>
+<div id="my-contact-div"><!-- contactable html placeholder --></div>
 
 <link rel="stylesheet" href="contactable.css" type="text/css" />
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript" src="jquery.contactable.min.js"></script>
+<script type="text/javascript" src="jquery.contactable.js"></script>
 
 <script>
 	jQuery(function(){
-		jQuery('#contactable').contactable(
+		jQuery('#my-contact-div').contactable(
         {
             subject: 'feedback URL:'+location.href,
             url: 'mail.php',
