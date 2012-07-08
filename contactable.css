@@ -38,7 +38,9 @@
 	z-index:99;
 }
 
-#contactable form#contactForm input, textarea, select {
+#contactable form#contactForm input,
+#contactable form#contactForm textarea,
+#contactable form#contactForm select {
 	background:#FFFFFF none repeat scroll 0 0;
 	outline-style:none;
 	outline-width:medium;
