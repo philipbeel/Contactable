@@ -1,4 +1,4 @@
-#contactable #contactable_inner {
+#contactable-inner {
 	background-image:url(images/contact.png);
 	color:#FFFFFF;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -20,7 +20,7 @@
 	z-index:100000;
 }
 
-#contactable #contactForm {
+#contactable-contactForm {
 	background-color:#333333;
 	border:2px solid #FFFFFF;
 	color:#FFFFFF;
@@ -38,9 +38,9 @@
 	z-index:99;
 }
 
-#contactable form#contactForm input,
-#contactable form#contactForm textarea,
-#contactable form#contactForm select {
+form#contactable-contactForm input,
+form#contactable-contactForm textarea,
+form#contactable-contactForm select {
 	background:#FFFFFF none repeat scroll 0 0;
 	outline-style:none;
 	outline-width:medium;
@@ -51,24 +51,25 @@
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	margin-bottom:10px;
 }
-#contactable form#contactForm select {
+
+form#contactable-contactForm select {
 	width:335px;
 }
 
-#contactable form#contactForm p {
+form#contactable-contactForm p {
 	width:325px;
 	font-size:0.9em;
 }
 
-#contactable form#contactForm .disclaimer {
+form#contactable-contactForm .contactable-disclaimer {
 	*margin-left:20px;
 }
 
-#contactable #contactForm .green {
+#contactable-contactForm .contactable-green {
 	color:	#76b347;
 }
 
-#contactable #overlay {
+#contactable-overlay {
 	background-color:#666666;
 	display:none;
 	height:100%;
@@ -80,17 +81,17 @@
 	width:100%;
 	z-index:0;
 } 
-#contactable .invalid { background-color: #EDBE9C; }
-#contactable #name.invalid { background-color: #EDBE9C; } 
-#contactable #email.invalid { background-color: #EDBE9C; }
-#contactable #comment.invalid { background-color: #EDBE9C; }
+.contactable-invalid { background-color: #EDBE9C; }
+#contactable-name.contactable-invalid { background-color: #EDBE9C; } 
+#contactable-email.contactable-invalid { background-color: #EDBE9C; }
+#contactable-comment.contactable-invalid { background-color: #EDBE9C; }
 
-#contactable form#contactForm label{
+form#contactable-contactForm label{
 	*margin-left:20px;
 	line-height:150%;
 }
 
-#contactable form#contactForm #loading {
+form#contactable-contactForm #contactable-loading {
 	background: url(images/ajax-loader.gif) no-repeat;
 	width:66px;
 	height:66px;
@@ -98,7 +99,7 @@
 	display:none;
 }
 
-#contactable #callback {
+#contactable-callback {
 	font-size:1.1em;
 	color: #FFF;
 	width:325px;
@@ -106,14 +107,14 @@
 	display:none;
 }
 
-#contactable .holder {
+.contactable-holder {
 	margin:0 auto;
 	*margin-left:20px;
 	padding-top:20px;	
 }	
 
 /* Submit button */
-#contactable form#contactForm .submit {
+form#contactable-contactForm .contactable-submit {
   background-color: #7fbf4d;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7fbf4d), color-stop(100%, #63a62f));
   background-image: -webkit-linear-gradient(top, #7fbf4d, #63a62f);
@@ -137,7 +138,7 @@
   text-shadow: 0 -1px 0 #4c9021;
   width: 338px; }
 
-#contactable form#contactForm .submit:hover {
+form#contactable-contactForm .contactable-submit:hover {
     background-color: #76b347;
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #76b347), color-stop(100%, #5e9e2e));
     background-image: -webkit-linear-gradient(top, #76b347, #5e9e2e);
@@ -149,7 +150,8 @@
     -moz-box-shadow: inset 0 1px 0 0 #8dbf67;
     box-shadow: inset 0 1px 0 0 #8dbf67;
     cursor: pointer; }
-  button.cupid-green:active {
+
+button.contactable-cupid-green:active {
     border: 1px solid #5b992b;
     border-bottom: 1px solid #538c27;
     -webkit-box-shadow: inset 0 0 8px 4px #548c29, 0 1px 0 0 #eeeeee;
