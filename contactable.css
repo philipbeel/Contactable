@@ -84,7 +84,7 @@ form#contactable-contactForm .contactable-disclaimer {
 .contactable-invalid { background-color: #EDBE9C; }
 #contactable-name.contactable-invalid { background-color: #EDBE9C; } 
 #contactable-email.contactable-invalid { background-color: #EDBE9C; }
-#contactable-comment.contactable-invalid { background-color: #EDBE9C; }
+#contactable-message.contactable-invalid { background-color: #EDBE9C; }
 
 form#contactable-contactForm label{
 	*margin-left:20px;
