@@ -38,7 +38,9 @@
 	z-index:99;
 }
 
-form#contactable-contactForm input, textarea, select {
+form#contactable-contactForm input,
+form#contactable-contactForm textarea,
+form#contactable-contactForm select {
 	background:#FFFFFF none repeat scroll 0 0;
 	outline-style:none;
 	outline-width:medium;
@@ -49,6 +51,7 @@ form#contactable-contactForm input, textarea, select {
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	margin-bottom:10px;
 }
+
 form#contactable-contactForm select {
 	width:335px;
 }
@@ -81,7 +84,7 @@ form#contactable-contactForm .contactable-disclaimer {
 .contactable-invalid { background-color: #EDBE9C; }
 #contactable-name.contactable-invalid { background-color: #EDBE9C; } 
 #contactable-email.contactable-invalid { background-color: #EDBE9C; }
-#contactable-comment.contactable-invalid { background-color: #EDBE9C; }
+#contactable-message.contactable-invalid { background-color: #EDBE9C; }
 
 form#contactable-contactForm label{
 	*margin-left:20px;
