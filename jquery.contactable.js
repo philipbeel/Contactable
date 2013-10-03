@@ -79,7 +79,16 @@
 			jQuery(this).html('<div id="contactable-inner"></div><form id="contactable-contactForm" method="" action=""><div id="contactable-loading"></div><div id="contactable-callback"></div><div class="contactable-holder"><p><label for="contactable-name">'+options.name+'<span class="contactable-green"> * </span></label><br /><input id="contactable-name" class="contactable-contact contactable-validate" name="name" /></p><p><label for="contactable-email">'+options.email+' <span class="contactable-green"> * </span></label><br /><input id="contactable-email" class="contactable-contact contactable-validate" name="email" /></p>'+dropdown+'<p><label for="contactable-message">'+options.message+' <span class="contactable-green"> * </span></label><br /><textarea id="contactable-message" name="message" class="contactable-message contactable-validate" rows="4" cols="30" ></textarea></p><p><input class="contactable-submit" type="submit" value="'+options.submit+'"/></p><p class="contactable-disclaimer">'+options.disclaimer+'</p></div></form>');
 			
 			// Toggle the form visibility
-			jQuery('#contactable-inner').toggle(function() {
+
+				$.fn.toggleClick = function() {
+					var functions = arguments, iteration = 0
+					return this.click(function() {
+						functions[iteration].apply(this, arguments)
+						iteration = (iteration + 1) % functions.length
+					})
+				}
+    
+			jQuery('#contactable-inner').toggleClick(function() {
 				jQuery('#contactable-overlay').css({display: 'block'});
 				jQuery(this).animate({"marginLeft": "-=5px"}, "2000"); 
 				jQuery('#contactable-contactForm').animate({"marginLeft": "-=0px"}, "2000");
