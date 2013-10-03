@@ -160,9 +160,7 @@
 							jQuery('#contactable-callback').show().append(options.recievedMsg);
 							if(options.hideOnSubmit === true) {
 								//hide the tab after successful submition if requested
-								jQuery('#contactable-contactForm').animate({dummy:1}, 2000).animate({"marginLeft": "-=450px"}, "slow");
-								jQuery('#contactable-inner').animate({dummy:1}, 2000).animate({"marginLeft": "-=447px"}, "slow").animate({"marginLeft": "+=5px"}, "fast"); 
-								jQuery('#contactable-overlay').css({display: 'none'});	
+								$('#contactable-inner').click();
 							}
 						} else {
 							jQuery('#contactable-callback').show().append(options.notRecievedMsg);
