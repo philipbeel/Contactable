@@ -8,7 +8,7 @@ Email   : contact@theodin.co.uk<br/>
 Twitter : @philipbeel<br/>
 
 ### Descrpition
-Contactable is a jQuery plugin that enables users to incorporate a feature rich contact form into any website running PHP and Apache.
+Contactable is a jQuery plugin that enables users to incorporate a feature rich contact form into any website running PHP or Java.
 
 ### Usage
 Call in the jQuery framework and jquery.contactable.js in your webpage
@@ -27,6 +27,8 @@ Initiate the contactable plugin when the page loads
 
 ### IMPORTANT
 Open the **mail.php** file and look for **CHANGE@YOURADDRESS.COM** and replace with the email address you wish to receive contact messages to.
+
+For Java web applications configure JNDI resource for javax.mail.Session for your servlet container (example for Tomcat included), customize **Mail.java**, , and change **CHANGE@YOURADDRESS.COM**.
 
 ### Plugin parameters
 You can extend the contactables configuration with some of the following configuration
