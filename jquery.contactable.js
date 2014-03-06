@@ -113,7 +113,7 @@
 					jQuery(this).removeClass('contactable-invalid');
 				});
 
-				// Loop through requigreen field
+				// Loop through required field
 				jQuery("#contactable-contactForm .contactable-validate").each(function() {
 					
 					// Check the min length
