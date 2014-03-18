@@ -24,7 +24,6 @@
 	background-color:#333333;
 	border:2px solid #FFFFFF;
 	color:#FFFFFF;
-	height:450px;
 	left:0;
 	margin-left:-400px;
 	*margin-left:-434px;
@@ -115,7 +114,7 @@ form#contactable-contactForm #contactable-loading {
 .contactable-holder {
 	margin:0 auto;
 	*margin-left:20px;
-	padding-top:20px;
+	padding:20px 0;
 }
 
 /* Submit button */
