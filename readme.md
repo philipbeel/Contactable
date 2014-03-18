@@ -33,18 +33,19 @@ For Java web applications configure JNDI resource for javax.mail.Session for you
 ### Plugin parameters
 You can extend the contactables configuration with some of the following configuration
 
->subject: {String}			 // Email subject heading<br/>
->url: {String}	 			 // URL path of mail.php file **must be absolute**<br/>
->name: {String} 		 	 // Name label<br/>
->email: {String} 			 // Email label<br/>
->dropdownTitle: {String}	 // Dropdown label, if empty no dropdown is displayed<br/>
+>subject: {String}           // Email subject heading<br/>
+>header: {String}            // Text to display at the top of the form<br/>
+>url: {String}               // URL path of mail.php file **must be absolute**<br/>
+>name: {String}              // Name label<br/>
+>email: {String}             // Email label<br/>
+>dropdownTitle: {String}     // Dropdown label, if empty no dropdown is displayed<br/>
 >dropdownOptions: {Array}    // Select options for dropdown<br/>
->message: {String}			 // Message label<br/>
->submit: {String}	 		 // Label text for the submit button<br/>
->recievedMsg: {String} 	 	 // Message successfully wording<br/>
+>message: {String}           // Message label<br/>
+>submit: {String}            // Label text for the submit button<br/>
+>recievedMsg: {String}       // Message successfully wording<br/>
 >notRecievedMsg: {String}    // Message failed wording<br/>
->disclaimer: {String} 		 // Text to display at the bottom of the form<br/>
->hideOnSubmit: {Boolean} 	 // hide the form after submitting it<br/>
+>footer: {String}            // Text to display at the bottom of the form<br/>
+>hideOnSubmit: {Boolean}     // hide the form after submitting it<br/>
 
 
 
