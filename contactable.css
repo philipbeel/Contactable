@@ -8,8 +8,8 @@
 	cursor:pointer;
 	height:102px;
 	left:0;
-	margin-left:-5px; 
-	*margin-left:-5px; 
+	margin-left:-5px;
+	*margin-left:-5px;
 	overflow:hidden;
 	position:fixed;
 	*position:absolute;
@@ -80,9 +80,9 @@ form#contactable-contactForm .contactable-disclaimer {
 	top:0;
 	width:100%;
 	z-index:0;
-} 
+}
 .contactable-invalid { background-color: #EDBE9C; }
-#contactable-name.contactable-invalid { background-color: #EDBE9C; } 
+#contactable-name.contactable-invalid { background-color: #EDBE9C; }
 #contactable-email.contactable-invalid { background-color: #EDBE9C; }
 #contactable-message.contactable-invalid { background-color: #EDBE9C; }
 
@@ -103,15 +103,15 @@ form#contactable-contactForm #contactable-loading {
 	font-size:1.1em;
 	color: #FFF;
 	width:325px;
-	margin: 100px auto;	
+	margin: 100px auto;
 	display:none;
 }
 
 .contactable-holder {
 	margin:0 auto;
 	*margin-left:20px;
-	padding-top:20px;	
-}	
+	padding-top:20px;
+}
 
 /* Submit button */
 form#contactable-contactForm .contactable-submit {

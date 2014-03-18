@@ -1,10 +1,10 @@
 /* theodin.co.uk -Designed and developed by Philip Beel All Rights Reserved*/
 
-/* 
+/*
 ------------------------------------------------------------------------------------------------------Genetic--------------*/
 
 /* Reset */
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {
 	margin:0;
 	padding:0;
 }
@@ -12,7 +12,7 @@ table {
 	border-collapse:collapse;
 	border-spacing:0;
 }
-fieldset,img { 
+fieldset,img {
 	border:0;
 }
 address,caption,cite,code,dfn,em,strong,th,var {
@@ -32,7 +32,7 @@ h1, h2, h3 {
     letter-spacing: -1px;
     font-size:1.3em;
     text-shadow: 0px 1px 0px #ffffff;
-    filter: dropshadow(color=#ffffff, offx=0, offy=1); 
+    filter: dropshadow(color=#ffffff, offx=0, offy=1);
 }
 q:before,q:after {
 	content:'';
@@ -57,14 +57,14 @@ body {
     position:relative;
     width:600px;
     height:100%;
-}   
+}
 #page {
     margin:0 auto;
-    width:960px;    
+    width:960px;
 }
 #page h2 {
     font-weight:bolder;
     position:relative;
     float:left;
     margin:10px;
-}   
+}
