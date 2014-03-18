@@ -80,6 +80,14 @@
 
 			jQuery(this).html('<div id="contactable-inner"></div><form id="contactable-contactForm" method="" action=""><div id="contactable-loading"></div><div id="contactable-callback"></div><div class="contactable-holder"><p class="contactable-header">'+options.header+'</p><p><label for="contactable-name">'+options.name+'<span class="contactable-green"> * </span></label><br /><input id="contactable-name" class="contactable-contact contactable-validate" name="name" /></p><p><label for="contactable-email">'+options.email+' <span class="contactable-green"> * </span></label><br /><input id="contactable-email" class="contactable-contact contactable-validate" name="email" /></p>'+dropdown+'<p><label for="contactable-message">'+options.message+' <span class="contactable-green"> * </span></label><br /><textarea id="contactable-message" name="message" class="contactable-message contactable-validate" rows="4" cols="30" ></textarea></p><p><input class="contactable-submit" type="submit" value="'+options.submit+'"/></p><p class="contactable-footer">'+options.footer+'</p></div></form>');
 
+			// hide header or footer when empty
+			if(options.header.length == 0) {
+				jQuery(this).find(".contactable-header").hide();
+			}
+			if(options.footer.length == 0) {
+				jQuery(this).find(".contactable-footer").hide();
+			}
+
 			// Toggle the form visibility
 
 				$.fn.toggleClick = function() {
