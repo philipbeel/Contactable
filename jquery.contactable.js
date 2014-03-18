@@ -16,6 +16,7 @@
 		// Set default options
 		var defaults = {
 			url: 'mail.php',
+			header: '',
 			name: 'Name',
 			email: 'Email',
 			dropdownTitle: '',
@@ -25,7 +26,7 @@
 			submit : 'SEND',
 			recievedMsg : 'Thank you for your message',
 			notRecievedMsg : 'Sorry but your message could not be sent, try again later',
-			disclaimer: 'Please feel free to get in touch, we value your feedback',
+			footer: 'Please feel free to get in touch, we value your feedback',
 			hideOnSubmit: true
 		};
 
@@ -56,6 +57,7 @@
 			*  		<div id="contactable-loading"></div>
 			*		<div id="contactable-callback"></div>
 			* 		<div class="contactable-holder">
+			*			<p class="contactable-header">Header text</p>
 			* 			<p>
 			*				<label for="contactable-name">Name<span class="contactable-green"> * </span></label><br />
 			*				<input id="contactable-name" class="contactable-contact contactable-validate" name="name" />
@@ -71,12 +73,12 @@
 			*			<p>
 			*				<input class="contactable-submit" type="submit" value="Submit"/>
 			*			</p>
-			*			<p class="contactable-disclaimer">Disclaimer</p>
+			*			<p class="contactable-footer">Footer text</p>
 			*		</div>
 			*	</form>
 			*/
 
-			jQuery(this).html('<div id="contactable-inner"></div><form id="contactable-contactForm" method="" action=""><div id="contactable-loading"></div><div id="contactable-callback"></div><div class="contactable-holder"><p><label for="contactable-name">'+options.name+'<span class="contactable-green"> * </span></label><br /><input id="contactable-name" class="contactable-contact contactable-validate" name="name" /></p><p><label for="contactable-email">'+options.email+' <span class="contactable-green"> * </span></label><br /><input id="contactable-email" class="contactable-contact contactable-validate" name="email" /></p>'+dropdown+'<p><label for="contactable-message">'+options.message+' <span class="contactable-green"> * </span></label><br /><textarea id="contactable-message" name="message" class="contactable-message contactable-validate" rows="4" cols="30" ></textarea></p><p><input class="contactable-submit" type="submit" value="'+options.submit+'"/></p><p class="contactable-disclaimer">'+options.disclaimer+'</p></div></form>');
+			jQuery(this).html('<div id="contactable-inner"></div><form id="contactable-contactForm" method="" action=""><div id="contactable-loading"></div><div id="contactable-callback"></div><div class="contactable-holder"><p class="contactable-header">'+options.header+'</p><p><label for="contactable-name">'+options.name+'<span class="contactable-green"> * </span></label><br /><input id="contactable-name" class="contactable-contact contactable-validate" name="name" /></p><p><label for="contactable-email">'+options.email+' <span class="contactable-green"> * </span></label><br /><input id="contactable-email" class="contactable-contact contactable-validate" name="email" /></p>'+dropdown+'<p><label for="contactable-message">'+options.message+' <span class="contactable-green"> * </span></label><br /><textarea id="contactable-message" name="message" class="contactable-message contactable-validate" rows="4" cols="30" ></textarea></p><p><input class="contactable-submit" type="submit" value="'+options.submit+'"/></p><p class="contactable-footer">'+options.footer+'</p></div></form>');
 
 			// Toggle the form visibility
 

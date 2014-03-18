@@ -61,8 +61,13 @@ form#contactable-contactForm p {
 	font-size:0.9em;
 }
 
-form#contactable-contactForm .contactable-disclaimer {
+form#contactable-contactForm .contactable-header,
+form#contactable-contactForm .contactable-footer {
 	*margin-left:20px;
+}
+
+form#contactable-contactForm .contactable-header {
+	margin-bottom:10px;
 }
 
 #contactable-contactForm .contactable-green {
