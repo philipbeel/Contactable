@@ -89,14 +89,13 @@
 			}
 
 			// Toggle the form visibility
-
-				$.fn.toggleClick = function() {
-					var functions = arguments, iteration = 0
-					return this.click(function() {
-						functions[iteration].apply(this, arguments)
-						iteration = (iteration + 1) % functions.length
-					})
-				}
+			jQuery.fn.toggleClick = function() {
+				var functions = arguments, iteration = 0
+				return this.click(function() {
+					functions[iteration].apply(this, arguments)
+					iteration = (iteration + 1) % functions.length
+				})
+			}
 
 			jQuery('#contactable-inner').toggleClick(function() {
 				jQuery('#contactable-overlay').css({display: 'block'});
@@ -170,7 +169,7 @@
 							jQuery('#contactable-callback').show().append(options.recievedMsg);
 							if(options.hideOnSubmit === true) {
 								//hide the tab after successful submition if requested
-								$('#contactable-inner').click();
+								jQuery('#contactable-inner').click();
 							}
 						} else {
 							jQuery('#contactable-callback').show().append(options.notRecievedMsg);
