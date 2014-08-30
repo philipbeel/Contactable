@@ -8,8 +8,8 @@
 	cursor:pointer;
 	height:102px;
 	left:0;
-	margin-left:-5px; 
-	*margin-left:-5px; 
+	margin-left:-5px;
+	*margin-left:-5px;
 	overflow:hidden;
 	position:fixed;
 	*position:absolute;
@@ -24,27 +24,27 @@
 	background-color:#333333;
 	border:2px solid #FFFFFF;
 	color:#FFFFFF;
-	height:450px;
 	left:0;
 	margin-left:-400px;
 	*margin-left:-434px;
 	margin-top:-160px;
 	overflow:hidden;
-	padding-left:30px;
+	padding-left:0;
 	position:fixed;
 	top:200px;
-	width:360px;
-	*width:394px;
+	width:390px;
 	z-index:99;
 }
 
 form#contactable-contactForm input,
 form#contactable-contactForm textarea,
 form#contactable-contactForm select {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
 	background:#FFFFFF none repeat scroll 0 0;
 	outline-style:none;
 	outline-width:medium;
-	width:325px;
+	width:100%;
 	padding:5px;
 	border:1px solid #dfdfdf;
 	font-size:1em;
@@ -52,17 +52,12 @@ form#contactable-contactForm select {
 	margin-bottom:10px;
 }
 
-form#contactable-contactForm select {
-	width:335px;
-}
-
 form#contactable-contactForm p {
-	width:325px;
 	font-size:0.9em;
 }
 
-form#contactable-contactForm .contactable-disclaimer {
-	*margin-left:20px;
+form#contactable-contactForm .contactable-header {
+	margin-bottom:10px;
 }
 
 #contactable-contactForm .contactable-green {
@@ -80,14 +75,13 @@ form#contactable-contactForm .contactable-disclaimer {
 	top:0;
 	width:100%;
 	z-index:0;
-} 
+}
 .contactable-invalid { background-color: #EDBE9C; }
-#contactable-name.contactable-invalid { background-color: #EDBE9C; } 
+#contactable-name.contactable-invalid { background-color: #EDBE9C; }
 #contactable-email.contactable-invalid { background-color: #EDBE9C; }
 #contactable-message.contactable-invalid { background-color: #EDBE9C; }
 
 form#contactable-contactForm label{
-	*margin-left:20px;
 	line-height:150%;
 }
 
@@ -103,15 +97,14 @@ form#contactable-contactForm #contactable-loading {
 	font-size:1.1em;
 	color: #FFF;
 	width:325px;
-	margin: 100px auto;	
+	margin: 100px auto;
 	display:none;
 }
 
 .contactable-holder {
-	margin:0 auto;
-	*margin-left:20px;
-	padding-top:20px;	
-}	
+	margin:0;
+	padding:20px 10px 20px 20px;
+}
 
 /* Submit button */
 form#contactable-contactForm .contactable-submit {
@@ -136,7 +129,7 @@ form#contactable-contactForm .contactable-submit {
   padding: 7px 0 8px 0;
   text-align: center;
   text-shadow: 0 -1px 0 #4c9021;
-  width: 338px; }
+}
 
 form#contactable-contactForm .contactable-submit:hover {
     background-color: #76b347;
