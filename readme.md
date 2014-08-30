@@ -2,7 +2,7 @@ Contactable jQuery plugin.
 ========================================================
 
 GitHub  : https://github.com/philipbeel/Contactable<br/>
-Demo    : http://plugins.theodin.co.uk/jquery/contactable.1.5/<br/>
+Demo    : http://plugins.theodin.co.uk/contactable/<br/>
 Website : http://theodin.co.uk<br/>
 Email   : contact@theodin.co.uk<br/>
 Twitter : @philipbeel<br/>
