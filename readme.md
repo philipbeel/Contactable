@@ -1,11 +1,8 @@
-Contactable jQuery plugin.
-========================================================
+# Contactable jQuery plugin.
 
-GitHub  : https://github.com/philipbeel/Contactable<br/>
-Demo    : http://plugins.theodin.co.uk/contactable/<br/>
-Website : http://theodin.co.uk<br/>
-Email   : contact@theodin.co.uk<br/>
-Twitter : @philipbeel<br/>
+
+Website : [http://theodin.co.uk](https://theodin.co.uk)  
+Twitter : [@philipbeel](https://twitter.com/philipbeel)
 
 ### Descrpition
 Contactable is a jQuery plugin that enables users to incorporate a feature rich contact form into any website running PHP or Java.
@@ -33,19 +30,22 @@ For Java web applications configure JNDI resource for javax.mail.Session for you
 ### Plugin parameters
 You can extend the contactables configuration with some of the following configuration
 
->subject: {String}           // Email subject heading<br/>
->header: {String}            // Text to display at the top of the form<br/>
->url: {String}               // URL path of mail.php file **must be absolute**<br/>
->name: {String}              // Name label<br/>
->email: {String}             // Email label<br/>
->dropdownTitle: {String}     // Dropdown label, if empty no dropdown is displayed<br/>
->dropdownOptions: {Array}    // Select options for dropdown<br/>
->message: {String}           // Message label<br/>
->submit: {String}            // Label text for the submit button<br/>
->recievedMsg: {String}       // Message successfully wording<br/>
->notRecievedMsg: {String}    // Message failed wording<br/>
->footer: {String}            // Text to display at the bottom of the form<br/>
->hideOnSubmit: {Boolean}     // hide the form after submitting it<br/>
-
+```
+{
+  subject: {String}           // Email subject heading
+  header: {String}            // Text to display at the top of the form
+  url: {String}               // URL path of mail.php file **must be absolute**
+  name: {String}              // Name label
+  email: {String}             // Email label
+  dropdownTitle: {String}     // Dropdown label, if empty no dropdown is displayed
+  dropdownOptions: {Array}    // Select options for dropdown
+  message: {String}           // Message label
+  submit: {String}            // Label text for the submit button
+  recievedMsg: {String}       // Message successfully wording
+  notRecievedMsg: {String}    // Message failed wording
+  footer: {String}            // Text to display at the bottom of the form
+  hideOnSubmit: {Boolean}     // hide the form after submitting it
+}
+```
 
 
